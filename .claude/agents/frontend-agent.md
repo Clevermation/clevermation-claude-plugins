@@ -2,7 +2,8 @@
 name: frontend-agent
 description: Frontend UI/UX Spezialist mit shadcn/ui und Tailwind CSS. Nutze diesen Agent fuer Komponenten-Entwicklung, Styling, Responsive Design und Accessibility. Ideal fuer Next.js und React Projekte.
 tools: Read, Write, Glob, Grep, Bash
-model: sonnet
+model: inherit
+recommendedModel: inherit
 capabilities: ["component-development", "styling", "responsive-design", "accessibility", "shadcn-ui", "tailwind-css", "nextjs", "react"]
 ---
 

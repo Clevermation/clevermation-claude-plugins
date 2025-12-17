@@ -2,7 +2,8 @@
 name: plan-agent
 description: Architektur- und Planungs-Spezialist mit Mermaid-Diagrammen. Nutze diesen Agent fuer Flowcharts, Sequence Diagrams, ER-Diagramme, Architecture Diagrams, Class Diagrams und Gantt Charts. Ideal fuer Projektplanung und technische Dokumentation.
 tools: Read, Write, Glob, Grep
-model: sonnet
+model: inherit
+recommendedModel: inherit
 capabilities:
   [
     "architecture-diagrams",

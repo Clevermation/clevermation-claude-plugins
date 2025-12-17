@@ -58,7 +58,8 @@ Bitte wähle (Opus/Sonnet/Haiku):"
 
 **Hinweis:** Einige Agents werden automatisch mit empfohlenen Modellen konfiguriert:
 - **Opus empfohlen:** Supabase Agent (komplexe DB-Designs), N8N Agent (komplexe Workflows), Researcher Agent (tiefe Recherche)
-- **Sonnet Standard:** Plan Agent, Frontend-Test Agent, Frontend Agent, Airtable Agent
+- **Inherit (nutzt aktuelles Model):** Plan Agent, Frontend Agent
+- **Sonnet Standard:** Frontend-Test Agent, Airtable Agent
 
 ### Schritt 4: Optionale Plugins auswählen
 
@@ -202,9 +203,9 @@ Konfiguriere die Agents basierend auf der gewählten Model-Präferenz:
       "supabase-agent": "opus",
       "n8n-agent": "opus",
       "researcher-agent": "opus",
-      "plan-agent": "sonnet",
+      "plan-agent": "inherit",
       "frontend-test-agent": "sonnet",
-      "frontend-agent": "sonnet",
+      "frontend-agent": "inherit",
       "airtable-agent": "sonnet"
     }
   }
