@@ -4,7 +4,30 @@ Claude Code Plugin-System fuer das Clevermation-Team mit spezialisierten Agents,
 
 ## 🚀 Schnellstart - Plugin in neuem Projekt aktivieren
 
-### Schritt 1: Marketplace hinzufügen
+### Option 1: Shell-Script (Empfohlen)
+
+**Schnellste Methode:** Führe das Setup-Script aus:
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/Clevermation/clevermation-claude-plugins/main/setup.sh | bash
+```
+
+Oder lokal:
+```bash
+bash setup.sh
+```
+
+Das Script:
+- ✅ Prüft Claude Code Installation
+- ✅ Fügt Marketplace hinzu
+- ✅ Installiert Setup-Plugin
+- ✅ Installiert Standard-Plugins
+
+**Danach:** Führe `/setup-clevermation` in Claude Code aus für die vollständige Konfiguration.
+
+### Option 2: Manuell
+
+#### Schritt 1: Marketplace hinzufügen
 
 Öffne Claude Code in deinem neuen Projekt und führe aus:
 
@@ -14,7 +37,7 @@ Claude Code Plugin-System fuer das Clevermation-Team mit spezialisierten Agents,
 
 **⚠️ Falls SSH-Fehler:** Nutze immer die HTTPS-URL statt der Kurzform!
 
-### Schritt 2: Setup-Plugin installieren
+#### Schritt 2: Setup-Plugin installieren
 
 **WICHTIG:** Das Setup-Plugin muss installiert werden, damit die Commands verfügbar sind:
 
@@ -22,7 +45,7 @@ Claude Code Plugin-System fuer das Clevermation-Team mit spezialisierten Agents,
 /plugin install clevermation-setup@clevermation-plugins
 ```
 
-### Schritt 3: Setup starten
+#### Schritt 3: Setup starten
 
 ```bash
 /setup-clevermation
