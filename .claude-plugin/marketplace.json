@@ -33,32 +33,28 @@
       "source": "./.claude/agents/supabase-agent.md",
       "description": "Supabase Datenbank-Spezialist - Schema, RLS, Auth, Storage",
       "version": "1.0.0",
-      "tags": ["database", "supabase", "postgres"],
-      "optional": true
+      "tags": ["database", "supabase", "postgres"]
     },
     {
       "name": "n8n",
       "source": "./.claude/agents/n8n-agent.md",
       "description": "N8N Workflow-Automation - Integrationen und Automatisierung",
       "version": "1.0.0",
-      "tags": ["automation", "n8n", "workflows"],
-      "optional": true
+      "tags": ["automation", "n8n", "workflows"]
     },
     {
       "name": "airtable",
       "source": "./.claude/agents/airtable-agent.md",
       "description": "Airtable Datenbank-Experte - Tabellen, Formulas, API",
       "version": "1.0.0",
-      "tags": ["database", "airtable", "no-code"],
-      "optional": true
+      "tags": ["database", "airtable", "no-code"]
     },
     {
       "name": "frontend",
       "source": "./.claude/agents/frontend-agent.md",
       "description": "Frontend UI/UX mit shadcn/ui - React/Next.js Komponenten",
       "version": "1.0.0",
-      "tags": ["frontend", "react", "shadcn", "tailwind"],
-      "optional": true
+      "tags": ["frontend", "react", "shadcn", "tailwind"]
     }
   ]
 }
