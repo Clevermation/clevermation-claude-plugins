@@ -2,27 +2,26 @@
 
 Claude Code Plugin-System fuer das Clevermation-Team mit spezialisierten Agents, Skills und MCP Server Integrationen.
 
-## 🚀 Schnellstart
+## 🚀 Schnellstart - Plugin in neuem Projekt aktivieren
 
-**Für lokale Nutzung (Entwicklung/Testing):**
+### Schritt 1: Marketplace hinzufügen
+
+Öffne Claude Code in deinem neuen Projekt und führe aus:
 
 ```bash
-cd clevermation-claude-plugins
-claude .
+/plugin marketplace add clevermation/clevermation-claude-plugins
+```
+
+### Schritt 2: Setup starten
+
+```bash
 /setup-clevermation
 ```
 
-**Für Team-Distribution (GitHub):**
+Das Command führt dich interaktiv durch die komplette Einrichtung!
 
-```bash
-# 1. Repository auf GitHub hochladen
-# 2. Team-Mitglieder fügen hinzu:
-/plugin marketplace add clevermation/setup-clevermation-claude-plugins
-# 3. Onboarding:
-/setup-clevermation
-```
-
-📖 **Ausführliche Anleitung:** Siehe [DEPLOYMENT.md](./DEPLOYMENT.md)
+📖 **Detaillierte Schritt-für-Schritt Anleitung:** Siehe [QUICK_START.md](./QUICK_START.md)  
+📦 **Deployment & Team-Nutzung:** Siehe [DEPLOYMENT.md](./DEPLOYMENT.md)
 
 ## Quick Start
 
