@@ -8,6 +8,13 @@
   },
   "plugins": [
     {
+      "name": "clevermation-setup",
+      "source": "./plugins/setup",
+      "description": "Clevermation Setup Commands - Onboarding und Projekt-Konfiguration (/setup-clevermation, /configure-project)",
+      "version": "1.0.0",
+      "tags": ["setup", "onboarding", "configuration"]
+    },
+    {
       "name": "researcher",
       "source": "./.claude/agents/researcher-agent.md",
       "description": "Web-Recherche Agent mit Firecrawl - Informationen sammeln und validieren",

@@ -1,0 +1,10 @@
+{
+  "name": "clevermation-setup",
+  "version": "1.0.0",
+  "description": "Clevermation Setup Commands - Onboarding und Projekt-Konfiguration",
+  "author": {
+    "name": "Clevermation",
+    "email": "developer@clevermation.com"
+  },
+  "commands": "./commands"
+}
