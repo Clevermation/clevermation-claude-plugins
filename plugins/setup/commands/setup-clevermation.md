@@ -29,13 +29,15 @@ Installiere automatisch diese Standard-Plugins (keine Credentials nötig):
 2. **Plan Agent** - Architektur-Visualisierung mit Mermaid
 3. **Frontend-Test Agent** - E2E-Testing mit Playwright
 
-Führe aus:
+**WICHTIG:** Nutze `Bash` Tool um die Plugin-Installationen auszuführen:
 
 ```bash
-/plugin install researcher@clevermation-plugins
-/plugin install plan-agent@clevermation-plugins
-/plugin install frontend-test@clevermation-plugins
+claude plugin install researcher@clevermation-plugins
+claude plugin install plan-agent@clevermation-plugins
+claude plugin install frontend-test@clevermation-plugins
 ```
+
+Führe diese Befehle **automatisch** aus und zeige dem User den Fortschritt.
 
 ### Schritt 3: Model-Auswahl
 
@@ -82,8 +84,14 @@ Bitte wähle aus (z.B. 'Supabase und N8N', 'alle', 'keine'):"
 
 **Basierend auf der Antwort:**
 
-- Installiere die gewählten Plugins mit `/plugin install`
+- Installiere die gewählten Plugins mit `Bash` Tool: `claude plugin install <plugin-name>@clevermation-plugins`
 - Frage nach Credentials für **JEDES** gewählte Plugin (auch wenn mehrere gewählt wurden!)
+
+**Beispiel für Plugin-Installation:**
+- Wenn Supabase gewählt: `claude plugin install supabase@clevermation-plugins`
+- Wenn N8N gewählt: `claude plugin install n8n@clevermation-plugins`
+- Wenn Frontend gewählt: `claude plugin install frontend@clevermation-plugins`
+- Wenn Airtable gewählt: `claude plugin install airtable@clevermation-plugins`
 
 ### Schritt 5: Credentials einrichten
 
@@ -223,22 +231,39 @@ Konfiguriere die Agents basierend auf der gewählten Model-Präferenz:
 
 **Nach erfolgreicher Plugin-Installation und MCP-Verifikation:**
 
-Führe automatisch aus:
+**WICHTIG:** Führe die Projekt-Konfiguration **direkt hier durch**, nicht als separates Command!
 
-```bash
-/configure-project
-```
+Frage den User interaktiv nach:
 
-Dies startet das interaktive Projekt-Konfiguration, das:
+1. **Projektname** - "Wie lautet der Projektname?"
+2. **Kunde** - "Wer ist der Kunde für dieses Projekt?"
+3. **Technologie-Stack** - "Welcher Technologie-Stack wird verwendet?"
+4. **Projekt-Typ** - "Um welchen Projekt-Typ handelt es sich? (Web-App, API, Internes Tool, etc.)"
+5. **Besondere Anforderungen** - "Gibt es besondere Anforderungen oder Constraints?"
 
-- Projektname abfragt
-- Kunde abfragt
-- Technologie-Stack abfragt
-- Projekt-Typ abfragt
-- Besondere Anforderungen abfragt
-- `.claude/PROJECT_RULES.md` erstellt
-- `.claude/PROJECT_CONTEXT.md` erstellt
-- Agents an das Projekt anpasst
+**Dann erstelle:**
+
+1. **`.claude/PROJECT_RULES.md`** mit:
+   - Projekt-Info (Name, Kunde, Typ, Tech Stack)
+   - Entwicklungs-Konventionen
+   - Code-Stil-Richtlinien
+   - Git-Workflow
+   - Testing-Anforderungen
+   - Agent-Nutzung (wann welcher Agent)
+
+2. **`.claude/PROJECT_CONTEXT.md`** mit:
+   - Projekt-Übersicht
+   - Technologie-Stack Details
+   - Projekt-Struktur (automatisch erkennen mit `Read` und `Glob`)
+   - Wichtige Kontexte
+   - Zielgruppe
+   - Hauptfunktionen
+   - Agent-Kontext
+
+**WICHTIG:** 
+- Nutze `Read` und `Glob` um die Projekt-Struktur zu analysieren
+- Erstelle sinnvolle, projekt-spezifische Rules basierend auf dem Tech Stack
+- Füge keine generischen/leeren Inhalte hinzu
 
 ## Zusammenfassung nach Abschluss
 
