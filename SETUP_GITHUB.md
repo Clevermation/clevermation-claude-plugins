@@ -9,7 +9,7 @@ Die Plugin-Struktur ist bereit für GitHub!
 ### 1. Git Repository initialisieren
 
 ```bash
-cd /Users/jonneschwegmann/Desktop/Jonne_Felix/Clevermation/Intern/clevermation-claude-plugins
+cd /Users/jonneschwegmann/Desktop/Jonne_Felix/Clevermation/Intern/setup-clevermation-claude-plugins
 
 # Git Repository initialisieren
 git init
@@ -35,7 +35,7 @@ git commit -m "Initial commit: Clevermation Claude Code Plugins v1.0.0"
 
 ```bash
 # Remote Repository hinzufügen (ersetze USERNAME mit deinem GitHub-Username)
-git remote add origin https://github.com/clevermation/clevermation-claude-plugins.git
+git remote add origin https://github.com/setup-clevermation/setup-clevermation-claude-plugins.git
 
 # Branch auf main setzen
 git branch -M main
@@ -46,7 +46,7 @@ git push -u origin main
 
 **Falls Repository privat ist:**
 - Team-Mitglieder müssen Zugriff haben
-- Oder nutze: `git remote add origin git@github.com:clevermation/clevermation-claude-plugins.git` (SSH)
+- Oder nutze: `git remote add origin git@github.com:clevermation/setup-clevermation-claude-plugins.git` (SSH)
 
 ### 4. Team-Mitglieder können jetzt nutzen
 
@@ -54,13 +54,13 @@ Jedes Team-Mitglied führt aus:
 
 ```bash
 # In Claude Code (in einem beliebigen Projekt)
-/plugin marketplace add clevermation/clevermation-claude-plugins
+/plugin marketplace add clevermation/setup-clevermation-claude-plugins
 
 # Oder mit vollständigem Pfad:
-/plugin marketplace add https://github.com/clevermation/clevermation-claude-plugins
+/plugin marketplace add https://github.com/setup-clevermation/setup-clevermation-claude-plugins
 
 # Dann Onboarding:
-/clevermation
+/setup-clevermation
 ```
 
 ## Updates verteilen
@@ -104,7 +104,7 @@ Bevor du auf GitHub hochlädst, teste lokal:
 claude .
 
 # Command testen
-/clevermation
+/setup-clevermation
 ```
 
 Wenn alles funktioniert → GitHub hochladen!

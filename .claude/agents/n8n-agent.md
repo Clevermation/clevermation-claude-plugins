@@ -2,7 +2,8 @@
 name: n8n-agent
 description: N8N Workflow-Automation Spezialist. Nutze diesen Agent fuer Workflow-Design, Trigger-Konfiguration, Node-Setup und Integrationen. Erfordert N8N_URL und N8N_API_KEY.
 tools: Read, Write, Glob, Grep, WebFetch
-model: sonnet
+model: opus
+recommendedModel: opus
 capabilities:
   [
     "workflow-design",

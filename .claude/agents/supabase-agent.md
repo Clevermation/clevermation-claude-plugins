@@ -2,7 +2,8 @@
 name: supabase-agent
 description: Supabase Datenbank-Spezialist. Nutze diesen Agent fuer PostgreSQL Queries, Schema-Design, Row Level Security, Auth, Storage und Edge Functions. Erfordert SUPABASE_URL und SUPABASE_SECRET_KEY.
 tools: Read, Write, Glob, Grep, Bash
-model: sonnet
+model: opus
+recommendedModel: opus
 capabilities: ["database-design", "migrations", "row-level-security", "authentication", "storage", "edge-functions", "realtime"]
 ---
 

@@ -2,7 +2,8 @@
 name: researcher
 description: Web-Recherche Spezialist mit Firecrawl. Nutze diesen Agent fuer umfassende Informationssuche, Quellen-Validierung und strukturierte Recherche-Berichte. Wird automatisch gestartet bei Recherche-Aufgaben.
 tools: WebFetch, WebSearch, Read, Write, Glob, Grep
-model: sonnet
+model: opus
+recommendedModel: opus
 capabilities: ["web-research", "source-validation", "information-synthesis", "structured-reporting"]
 ---
 

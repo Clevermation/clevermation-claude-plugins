@@ -1,10 +1,10 @@
-# `/clevermation` Command - Ablauf und Funktionsweise
+# `/setup-clevermation` Command - Ablauf und Funktionsweise
 
-## Ablauf wenn `/clevermation` ausgeführt wird
+## Ablauf wenn `/setup-clevermation` ausgeführt wird
 
 ### Schritt 1: Command wird erkannt
-- Claude Code erkennt das `/clevermation` Command
-- Lädt die Command-Datei: `.claude/commands/clevermation.md`
+- Claude Code erkennt das `/setup-clevermation` Command
+- Lädt die Command-Datei: `.claude/commands/setup-clevermation.md`
 - Command hat `allowed-tools: Read, Write, AskUser` - kann Dateien lesen/schreiben und User fragen
 
 ### Schritt 2: Interaktiver Onboarding-Prozess

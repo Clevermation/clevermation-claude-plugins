@@ -1,11 +1,11 @@
 ---
-description: Projekt-Setup - Konfiguriere projekt-spezifische Rules, Agents und Plugins fuer dieses Kundenprojekt
+description: Projekt-Konfiguration - Konfiguriere projekt-spezifische Rules, Agents und Model-Einstellungen fuer dieses Kundenprojekt
 allowed-tools: Read, Write, AskUser
 ---
 
-# Projekt-Setup - Clevermation
+# Projekt-Konfiguration - Clevermation
 
-Ich helfe dir, projekt-spezifische Rules und Konfigurationen fuer dieses Kundenprojekt einzurichten.
+Ich helfe dir, projekt-spezifische Rules, Konfigurationen und Model-Einstellungen fuer dieses Kundenprojekt einzurichten.
 
 ## Was macht dieses Command?
 
@@ -24,6 +24,7 @@ Bevor wir starten, benoetige ich einige Informationen:
 3. **Technologie-Stack** - Welche Technologien werden verwendet?
 4. **Projekt-Typ** - Web-App, API, Automatisierung, etc.?
 5. **Besondere Anforderungen** - Gibt es spezielle Rules oder Constraints?
+6. **Model-Präferenz** - Welches Claude-Modell soll für dieses Projekt verwendet werden? (Opus/Sonnet/Haiku)
 
 ## Schritt 2: Projekt-spezifische Rules erstellen
 
@@ -65,7 +66,7 @@ Erstelle `.claude/PROJECT_CONTEXT.md` mit:
 ### Neues Projekt einrichten
 
 ```bash
-/setup-project
+/configure-project
 ```
 
 Das Command fuehrt dich interaktiv durch:
@@ -77,7 +78,7 @@ Das Command fuehrt dich interaktiv durch:
 ### Bestehendes Projekt aktualisieren
 
 ```bash
-/setup-project --update
+/configure-project --update
 ```
 
 Aktualisiert bestehende Konfigurationen ohne alles zu ueberschreiben.
@@ -85,9 +86,9 @@ Aktualisiert bestehende Konfigurationen ohne alles zu ueberschreiben.
 ## Beispiel-Workflow
 
 ```
-User: /setup-project
+User: /configure-project
 
-Claude: Willkommen beim Projekt-Setup! Lass uns beginnen...
+Claude: Willkommen bei der Projekt-Konfiguration! Lass uns beginnen...
 
 1. Projektname: [User gibt ein]
 2. Kunde: [User gibt ein]

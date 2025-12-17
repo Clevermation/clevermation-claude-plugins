@@ -9,7 +9,7 @@ Claude Code Plugin-System fuer das Clevermation-Team mit spezialisierten Agents,
 ```bash
 cd clevermation-claude-plugins
 claude .
-/clevermation
+/setup-clevermation
 ```
 
 **Für Team-Distribution (GitHub):**
@@ -17,9 +17,9 @@ claude .
 ```bash
 # 1. Repository auf GitHub hochladen
 # 2. Team-Mitglieder fügen hinzu:
-/plugin marketplace add clevermation/clevermation-claude-plugins
+/plugin marketplace add clevermation/setup-clevermation-claude-plugins
 # 3. Onboarding:
-/clevermation
+/setup-clevermation
 ```
 
 📖 **Ausführliche Anleitung:** Siehe [DEPLOYMENT.md](./DEPLOYMENT.md)
@@ -29,13 +29,13 @@ claude .
 ### 1. Marketplace hinzufuegen
 
 ```bash
-/plugin marketplace add clevermation/clevermation-claude-plugins
+/plugin marketplace add clevermation/setup-clevermation-claude-plugins
 ```
 
 ### 2. Onboarding starten
 
 ```bash
-/clevermation
+/setup-clevermation
 ```
 
 ### 3. Plugins installieren
@@ -102,8 +102,8 @@ clevermation-claude-plugins/          # Marketplace Root
 │   └── marketplace.json              # Marketplace Definition (definiert Plugins)
 ├── .claude/                          # Plugin-Komponenten (Teil des Plugins)
 │   ├── commands/                     # Plugin Commands
-│   │   ├── clevermation.md          # /clevermation Onboarding
-│   │   └── setup-project.md         # /setup-project Projekt-Setup
+│   │   ├── clevermation.md          # /setup-clevermation Onboarding
+│   │   └── setup-project.md         # /configure-project Projekt-Setup
 │   ├── agents/                       # Plugin Agents
 │   │   ├── researcher-agent.md
 │   │   ├── plan-agent.md
@@ -286,10 +286,10 @@ Jeder Agent hat spezialisierte Skills mit detaillierter Referenz:
 
 ### Fuer neue Kundenprojekte:
 
-Nutze `/setup-project` um projekt-spezifische Rules und Konfigurationen zu erstellen:
+Nutze `/configure-project` um projekt-spezifische Rules und Konfigurationen zu erstellen:
 
 ```bash
-/setup-project
+/configure-project
 ```
 
 Dies erstellt:
@@ -302,8 +302,8 @@ Dies erstellt:
 **Workflow:**
 
 1. Neues Projekt klonen/erstellen
-2. `/clevermation` ausfuehren (Onboarding)
-3. `/setup-project` ausfuehren (Projekt-spezifische Konfiguration)
+2. `/setup-clevermation` ausfuehren (Onboarding)
+3. `/configure-project` ausfuehren (Projekt-spezifische Konfiguration)
 4. Credentials in `settings.local.json` eintragen
 5. Loslegen!
 
@@ -313,7 +313,7 @@ Dies erstellt:
 
 1. Repository klonen
 2. Claude Code oeffnen
-3. `/clevermation` ausfuehren
+3. `/setup-clevermation` ausfuehren
 4. Credentials in `settings.local.json` eintragen
 5. Loslegen!
 

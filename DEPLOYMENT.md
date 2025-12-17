@@ -11,7 +11,7 @@ Du hast **zwei Optionen** wie du die Plugins nutzen kannst:
 **Wie:**
 1. Öffne Claude Code im Plugin-Verzeichnis
 2. Nutze die Plugins direkt - sie sind bereits verfügbar!
-3. Teste `/clevermation` Command lokal
+3. Teste `/setup-clevermation` Command lokal
 
 **Vorteile:**
 - Schnelles Testen während der Entwicklung
@@ -48,7 +48,7 @@ Du hast **zwei Optionen** wie du die Plugins nutzen kannst:
 
 ```bash
 # Im Plugin-Verzeichnis
-cd /Users/jonneschwegmann/Desktop/Jonne_Felix/Clevermation/Intern/clevermation-claude-plugins
+cd /Users/jonneschwegmann/Desktop/Jonne_Felix/Clevermation/Intern/setup-clevermation-claude-plugins
 
 # Claude Code öffnen (im Terminal)
 claude .
@@ -60,7 +60,7 @@ claude .
 
 ```bash
 # Im Claude Code Chat
-/clevermation
+/setup-clevermation
 ```
 
 Das Command sollte jetzt funktionieren!
@@ -90,7 +90,7 @@ git commit -m "Initial commit: Clevermation Claude Code Plugins"
 
 # GitHub Repository erstellen (auf github.com)
 # Dann:
-git remote add origin https://github.com/clevermation/clevermation-claude-plugins.git
+git remote add origin https://github.com/setup-clevermation/setup-clevermation-claude-plugins.git
 git branch -M main
 git push -u origin main
 ```
@@ -105,19 +105,19 @@ Jedes Team-Mitglied führt aus:
 
 ```bash
 # In Claude Code (in einem beliebigen Projekt)
-/plugin marketplace add clevermation/clevermation-claude-plugins
+/plugin marketplace add clevermation/setup-clevermation-claude-plugins
 ```
 
 **Oder mit vollständigem GitHub-Pfad:**
 ```bash
-/plugin marketplace add https://github.com/clevermation/clevermation-claude-plugins
+/plugin marketplace add https://github.com/setup-clevermation/setup-clevermation-claude-plugins
 ```
 
 ### Schritt 3: Plugins installieren
 
 ```bash
 # Onboarding starten
-/clevermation
+/setup-clevermation
 
 # Oder manuell installieren
 /plugin install researcher@clevermation-plugins
@@ -146,15 +146,15 @@ git push
 ### Für lokale Entwicklung:
 ✅ **Nichts weiter!** - Du kannst direkt loslegen:
 ```bash
-cd /Users/jonneschwegmann/Desktop/Jonne_Felix/Clevermation/Intern/clevermation-claude-plugins
+cd /Users/jonneschwegmann/Desktop/Jonne_Felix/Clevermation/Intern/setup-clevermation-claude-plugins
 claude .
-/clevermation
+/setup-clevermation
 ```
 
 ### Für Team-Distribution:
 1. ✅ Repository auf GitHub hochladen
 2. ✅ Team-Mitglieder fügen Marketplace hinzu
-3. ✅ Plugins installieren mit `/clevermation`
+3. ✅ Plugins installieren mit `/setup-clevermation`
 
 ---
 
@@ -185,9 +185,9 @@ claude .
 - Stelle sicher dass Repository öffentlich ist oder Zugriff vorhanden
 - Prüfe `.claude-plugin/marketplace.json` existiert
 
-### Command `/clevermation` funktioniert nicht
+### Command `/setup-clevermation` funktioniert nicht
 
-- Prüfe dass `.claude/commands/clevermation.md` existiert
+- Prüfe dass `.claude/commands/setup-clevermation.md` existiert
 - Prüfe Frontmatter ist korrekt
 - Claude Code neu starten
 
