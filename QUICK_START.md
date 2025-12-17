@@ -1,0 +1,200 @@
+# Quick Start - Plugin in neuem Projekt aktivieren
+
+## Schritt-für-Schritt Anleitung
+
+### Voraussetzungen
+
+- Claude Code installiert
+- Zugriff auf GitHub (falls Plugin dort veröffentlicht ist)
+- Oder: Lokales Plugin-Repository verfügbar
+
+---
+
+## Option 1: Plugin von GitHub nutzen (Team-Nutzung)
+
+### Schritt 1: Marketplace hinzufügen
+
+Öffne Claude Code in deinem neuen Projekt und führe aus:
+
+```bash
+/plugin marketplace add clevermation/clevermation-claude-plugins
+```
+
+**Oder direkt von GitHub:**
+
+```bash
+/plugin marketplace add https://github.com/clevermation/clevermation-claude-plugins
+```
+
+### Schritt 2: Setup starten
+
+```bash
+/setup-clevermation
+```
+
+Das Command führt dich interaktiv durch:
+1. ✅ Marketplace hinzufügen (automatisch)
+2. ✅ Standard-Plugins installieren (automatisch)
+3. ✅ Model-Auswahl (Opus/Sonnet/Haiku)
+4. ✅ Optionale Plugins auswählen (Supabase, N8N, etc.)
+5. ✅ Credentials einrichten
+6. ✅ MCP-Verifikation
+7. ✅ Agent-Model-Konfiguration
+8. ✅ Projekt-Konfiguration starten (`/configure-project`)
+
+### Schritt 3: Projekt-spezifische Konfiguration
+
+Nach dem Setup wird automatisch `/configure-project` gestartet:
+
+```bash
+/configure-project
+```
+
+Dies fragt nach:
+- Projektname
+- Kunde
+- Technologie-Stack
+- Projekt-Typ
+- Besondere Anforderungen
+- Model-Präferenz für dieses Projekt
+
+**Ergebnis:**
+- `.claude/PROJECT_RULES.md` - Projekt-spezifische Rules
+- `.claude/PROJECT_CONTEXT.md` - Projekt-Kontext
+- `.claude/settings.json` - Aktualisiert mit Projekt-Infos
+
+---
+
+## Option 2: Lokales Plugin nutzen (Entwicklung)
+
+### Schritt 1: Plugin-Verzeichnis öffnen
+
+```bash
+cd /path/to/clevermation-claude-plugins
+claude .
+```
+
+### Schritt 2: In neuem Projekt Plugin referenzieren
+
+**Methode 1: Symlink (empfohlen für Entwicklung)**
+
+```bash
+# Im neuen Projekt
+cd /path/to/your-new-project
+ln -s /path/to/clevermation-claude-plugins/.claude .claude-plugin
+```
+
+**Methode 2: Plugin-Verzeichnis kopieren**
+
+```bash
+# Im neuen Projekt
+cp -r /path/to/clevermation-claude-plugins/.claude .claude-plugin
+```
+
+### Schritt 3: Setup starten
+
+```bash
+/setup-clevermation
+```
+
+---
+
+## Was passiert beim Setup?
+
+### Automatisch installiert:
+
+1. **Marketplace** - Clevermation Plugin Marketplace wird hinzugefügt
+2. **Standard-Plugins:**
+   - `researcher` - Web-Recherche mit Firecrawl
+   - `plan-agent` - Mermaid Diagramme
+   - `frontend-test` - E2E-Testing mit Playwright
+
+### Interaktiv konfiguriert:
+
+1. **Model-Auswahl** - Opus/Sonnet/Haiku
+2. **Optionale Plugins** - Supabase, N8N, Airtable, Frontend
+3. **Credentials** - API Keys für gewählte Plugins
+4. **MCP-Verifikation** - Prüft ob MCPs funktionieren
+5. **Agent-Models** - Konfiguriert Model-Präferenzen
+
+### Erstellt:
+
+- `.claude/settings.local.json` - Lokale Credentials (nicht committed)
+- `.claude/settings.json` - Agent-Model-Konfiguration
+- `.claude/PROJECT_RULES.md` - Projekt-spezifische Rules (nach `/configure-project`)
+- `.claude/PROJECT_CONTEXT.md` - Projekt-Kontext (nach `/configure-project`)
+
+---
+
+## Nach dem Setup
+
+### Agents nutzen
+
+Die Agents sind jetzt verfügbar und können direkt genutzt werden:
+
+```
+"Recherchiere Best Practices für Supabase RLS"
+"Erstelle ein ER-Diagramm für eine E-Commerce Datenbank"
+"Teste den Login-Flow auf https://example.com"
+```
+
+### Commands verfügbar
+
+- `/setup-clevermation` - Setup erneut ausführen
+- `/configure-project` - Projekt-Konfiguration anpassen
+
+### Hooks aktiv
+
+Bei jedem Session-Start wird automatisch geprüft:
+- Sind Credentials gesetzt?
+- Funktionieren MCPs?
+- Zeigt entsprechende Hinweise
+
+---
+
+## Troubleshooting
+
+### Plugin wird nicht gefunden
+
+**Problem:** `/setup-clevermation` funktioniert nicht
+
+**Lösung:**
+1. Prüfe ob Marketplace hinzugefügt wurde:
+   ```bash
+   /plugin marketplace list
+   ```
+2. Füge Marketplace manuell hinzu:
+   ```bash
+   /plugin marketplace add clevermation/clevermation-claude-plugins
+   ```
+
+### MCPs funktionieren nicht
+
+**Problem:** MCP-Verifikation schlägt fehl
+
+**Lösung:**
+1. Prüfe Credentials in `.claude/settings.local.json`
+2. Prüfe `.mcp.json` existiert im Projekt
+3. Starte Claude Code neu
+
+### Agents verwenden falsches Model
+
+**Problem:** Agent nutzt nicht das gewünschte Model
+
+**Lösung:**
+1. Prüfe `.claude/settings.json` - `agents.modelPreferences`
+2. Passe Model-Präferenzen an
+3. Oder nutze `/setup-clevermation` erneut
+
+---
+
+## Nächste Schritte
+
+Nach erfolgreichem Setup:
+
+1. ✅ **Teste Agents** - Probiere verschiedene Agents aus
+2. ✅ **Passe PROJECT_RULES.md an** - Projekt-spezifische Rules definieren
+3. ✅ **Team teilen** - Andere Teammitglieder können dasselbe Setup durchführen
+
+**Viel Erfolg mit Clevermation! 🚀**
+
