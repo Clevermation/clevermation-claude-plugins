@@ -1,5 +1,5 @@
 #!/bin/bash
-# Clevermation Setup Script - Interaktiv
+# Clevermation Setup Script - Interaktiv mit Pfeiltasten-Navigation
 # curl -fsSL https://raw.githubusercontent.com/Clevermation/clevermation-claude-plugins/main/setup.sh | bash
 
 set -e
@@ -7,7 +7,69 @@ GREEN='\033[0;32m'
 YELLOW='\033[1;33m'
 BLUE='\033[0;34m'
 RED='\033[0;31m'
+CYAN='\033[0;36m'
 NC='\033[0m'
+
+# Arrow key navigation function
+arrow_menu() {
+    local prompt="$1"
+    shift
+    local options=("$@")
+    local selected=0
+    local count=${#options[@]}
+    
+    while true; do
+        clear
+        echo -e "${BLUE}╔═══════════════════════════════════════════════════════════════╗${NC}"
+        echo -e "${BLUE}║${NC}     ${GREEN}Clevermation Claude Code Plugins - Setup${NC}              ${BLUE}║${NC}"
+        echo -e "${BLUE}╚═══════════════════════════════════════════════════════════════╝${NC}\n"
+        echo -e "${CYAN}${prompt}${NC}"
+        echo ""
+        
+        for i in "${!options[@]}"; do
+            if [ $i -eq $selected ]; then
+                echo -e "${GREEN}▶ ${options[i]}${NC}"
+            else
+                echo -e "  ${options[i]}"
+            fi
+        done
+        
+        echo ""
+        echo -e "${YELLOW}Verwende ↑/↓ zum Navigieren, Enter zum Auswählen${NC}"
+        
+        read -rsn1 key
+        case "$key" in
+            $'\x1b')
+                read -rsn1 -t 0.1 tmp
+                if [[ "$tmp" == "[" ]]; then
+                    read -rsn1 -t 0.1 tmp
+                    case "$tmp" in
+                        "A") # Up arrow
+                            selected=$((selected - 1))
+                            [ $selected -lt 0 ] && selected=$((count - 1))
+                            ;;
+                        "B") # Down arrow
+                            selected=$((selected + 1))
+                            [ $selected -ge $count ] && selected=0
+                            ;;
+                    esac
+                fi
+                ;;
+            "")
+                echo $selected
+                return
+                ;;
+        esac
+    done
+}
+
+# Simple yes/no menu
+yes_no_menu() {
+    local prompt="$1"
+    local options=("Ja" "Nein")
+    local result=$(arrow_menu "$prompt" "${options[@]}")
+    [ "$result" = "0" ] && echo "j" || echo "n"
+}
 
 clear
 echo -e "${BLUE}╔═══════════════════════════════════════════════════════════════╗${NC}"
@@ -25,34 +87,31 @@ fi
 
 echo -e "${GREEN}✅ Claude Code ist installiert${NC}"
 
-# Claude Code Version prüfen und updaten
+# Claude Code Version prüfen und automatisch updaten
 echo -e "\n${YELLOW}📦 Claude Code Version prüfen...${NC}"
 CURRENT_VERSION=$(claude --version 2>/dev/null || echo "unknown")
 echo -e "Aktuelle Version: ${CURRENT_VERSION}"
 
-echo -ne "${YELLOW}→ Claude Code auf neueste Version updaten? (j/n): ${NC}"
-read -r UPDATE_CLAUDE
-
-if [ "$UPDATE_CLAUDE" = "j" ] || [ "$UPDATE_CLAUDE" = "J" ]; then
-    echo -e "${GREEN}Updating Claude Code...${NC}"
-    claude update || echo -e "${YELLOW}⚠️ Update fehlgeschlagen oder bereits aktuell${NC}"
-fi
+echo -e "${GREEN}→ Claude Code wird automatisch auf neueste Version aktualisiert...${NC}"
+claude update 2>/dev/null || echo -e "${YELLOW}⚠️ Update fehlgeschlagen oder bereits aktuell${NC}"
 
 # Schritt 2: Projekt-Verzeichnis prüfen
 echo -e "\n${YELLOW}📁 Schritt 2: Projekt-Verzeichnis prüfen${NC}\n"
 echo -e "Aktuelles Verzeichnis: ${BLUE}$(pwd)${NC}"
-echo -ne "${YELLOW}→ Bist du im richtigen Projekt-Verzeichnis? (j/n): ${NC}"
-read -r CONFIRM_DIR
 
-if [ "$CONFIRM_DIR" != "j" ] && [ "$CONFIRM_DIR" != "J" ]; then
-    echo -e "\n${YELLOW}Du bist nicht im richtigen Projekt-Verzeichnis.${NC}"
-    echo -e "${YELLOW}Optionen:${NC}"
-    echo -e "  1. Projekt-Verzeichnis-Pfad eingeben"
-    echo -e "  2. Script abbrechen und später im richtigen Verzeichnis erneut ausführen"
-    echo -ne "${YELLOW}→ Wähle Option (1/2): ${NC}"
-    read -r DIR_OPTION
+RESULT=$(yes_no_menu "Bist du im richtigen Projekt-Verzeichnis?")
+
+if [ "$RESULT" != "j" ]; then
+    clear
+    echo -e "${BLUE}╔═══════════════════════════════════════════════════════════════╗${NC}"
+    echo -e "${BLUE}║${NC}     ${GREEN}Clevermation Claude Code Plugins - Setup${NC}              ${BLUE}║${NC}"
+    echo -e "${BLUE}╚═══════════════════════════════════════════════════════════════╝${NC}\n"
+    echo -e "${YELLOW}Du bist nicht im richtigen Projekt-Verzeichnis.${NC}\n"
     
-    if [ "$DIR_OPTION" = "1" ]; then
+    DIR_OPTIONS=("Projekt-Verzeichnis-Pfad eingeben" "Script abbrechen")
+    DIR_CHOICE=$(arrow_menu "Was möchtest du tun?" "${DIR_OPTIONS[@]}")
+    
+    if [ "$DIR_CHOICE" = "0" ]; then
         echo -ne "${YELLOW}→ Gib den vollständigen Pfad zum Projekt-Verzeichnis ein: ${NC}"
         read -r PROJECT_PATH
         
@@ -99,37 +158,50 @@ claude plugin install frontend-test@clevermation-plugins || echo -e "${RED}❌ F
 
 # Schritt 6: Optionale Plugins
 echo -e "\n${YELLOW}📋 Schritt 6: Optionale Plugins${NC}\n"
-echo -e "${BLUE}Verfügbare optionale Plugins:${NC}"
-echo -e "  1. Supabase (Datenbank, Auth, Storage)"
-echo -e "  2. N8N (Workflow-Automation)"
-echo -e "  3. Airtable (Tabellen, Formulas)"
-echo -e "  4. Frontend (shadcn/ui, Tailwind)"
-echo -ne "${YELLOW}→ Welche optionalen Plugins installieren? (z.B. '1,2' oder 'alle' oder 'keine'): ${NC}"
-read -r OPTIONAL_CHOICE
 
-if [ "$OPTIONAL_CHOICE" != "keine" ] && [ "$OPTIONAL_CHOICE" != "" ]; then
-    if [[ "$OPTIONAL_CHOICE" == *"1"* ]] || [ "$OPTIONAL_CHOICE" = "alle" ]; then
+OPTIONAL_PLUGINS=(
+    "Supabase (Datenbank, Auth, Storage)"
+    "N8N (Workflow-Automation)"
+    "Airtable (Tabellen, Formulas)"
+    "Frontend (shadcn/ui, Tailwind)"
+    "Alle installieren"
+    "Keine installieren"
+)
+
+SELECTED_PLUGINS=$(arrow_menu "Welche optionalen Plugins installieren?" "${OPTIONAL_PLUGINS[@]}")
+
+case "$SELECTED_PLUGINS" in
+    0)
         echo -e "${GREEN}Installing Supabase...${NC}"
         claude plugin install supabase@clevermation-plugins || echo -e "${RED}❌ Supabase fehlgeschlagen${NC}"
-    fi
-    if [[ "$OPTIONAL_CHOICE" == *"2"* ]] || [ "$OPTIONAL_CHOICE" = "alle" ]; then
+        ;;
+    1)
         echo -e "${GREEN}Installing N8N...${NC}"
         claude plugin install n8n@clevermation-plugins || echo -e "${RED}❌ N8N fehlgeschlagen${NC}"
-    fi
-    if [[ "$OPTIONAL_CHOICE" == *"3"* ]] || [ "$OPTIONAL_CHOICE" = "alle" ]; then
+        ;;
+    2)
         echo -e "${GREEN}Installing Airtable...${NC}"
         claude plugin install airtable@clevermation-plugins || echo -e "${RED}❌ Airtable fehlgeschlagen${NC}"
-    fi
-    if [[ "$OPTIONAL_CHOICE" == *"4"* ]] || [ "$OPTIONAL_CHOICE" = "alle" ]; then
+        ;;
+    3)
         echo -e "${GREEN}Installing Frontend...${NC}"
         claude plugin install frontend@clevermation-plugins || echo -e "${RED}❌ Frontend fehlgeschlagen${NC}"
-    fi
-else
-    echo -e "${YELLOW}Keine optionalen Plugins installiert${NC}"
-fi
+        ;;
+    4)
+        echo -e "${GREEN}Installing alle optionalen Plugins...${NC}"
+        claude plugin install supabase@clevermation-plugins || echo -e "${RED}❌ Supabase fehlgeschlagen${NC}"
+        claude plugin install n8n@clevermation-plugins || echo -e "${RED}❌ N8N fehlgeschlagen${NC}"
+        claude plugin install airtable@clevermation-plugins || echo -e "${RED}❌ Airtable fehlgeschlagen${NC}"
+        claude plugin install frontend@clevermation-plugins || echo -e "${RED}❌ Frontend fehlgeschlagen${NC}"
+        ;;
+    5)
+        echo -e "${YELLOW}Keine optionalen Plugins installiert${NC}"
+        ;;
+esac
 
 # Zusammenfassung
-echo -e "\n${GREEN}╔═══════════════════════════════════════════════════════════════╗${NC}"
+clear
+echo -e "${GREEN}╔═══════════════════════════════════════════════════════════════╗${NC}"
 echo -e "${GREEN}║${NC}                    ${BLUE}✅ Setup abgeschlossen!${NC}                    ${GREEN}║${NC}"
 echo -e "${GREEN}╚═══════════════════════════════════════════════════════════════╝${NC}\n"
 
