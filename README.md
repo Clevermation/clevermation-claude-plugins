@@ -102,8 +102,8 @@ clevermation-claude-plugins/          # Marketplace Root
 │   └── marketplace.json              # Marketplace Definition (definiert Plugins)
 ├── .claude/                          # Plugin-Komponenten (Teil des Plugins)
 │   ├── commands/                     # Plugin Commands
-│   │   ├── clevermation.md          # /setup-clevermation Onboarding
-│   │   └── setup-project.md         # /configure-project Projekt-Setup
+│   │   ├── setup-clevermation.md    # /setup-clevermation Onboarding
+│   │   └── configure-project.md     # /configure-project Projekt-Konfiguration
 │   ├── agents/                       # Plugin Agents
 │   │   ├── researcher-agent.md
 │   │   ├── plan-agent.md
