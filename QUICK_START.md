@@ -12,23 +12,34 @@
 
 ## Option 1: Plugin von GitHub nutzen (Team-Nutzung)
 
+### Voraussetzung: Repository muss öffentlich sein
+
+**WICHTIG:** Das Repository muss auf GitHub **öffentlich** sein, damit es ohne Authentifizierung genutzt werden kann.
+
+Falls das Repository privat ist:
+- **Option A:** Repository öffentlich machen (empfohlen für Plugins)
+- **Option B:** Lokale Nutzung verwenden (siehe Option 2 unten)
+- **Option C:** GitHub Personal Access Token konfigurieren
+
 ### Schritt 1: Marketplace hinzufügen
 
 Öffne Claude Code in deinem neuen Projekt und führe aus:
 
-**Option 1: HTTPS URL (empfohlen, funktioniert immer):**
+**Für öffentliches Repository:**
 
 ```bash
 /plugin marketplace add https://github.com/clevermation/clevermation-claude-plugins
 ```
 
-**Option 2: Kurzform (benötigt SSH-Keys oder öffentliches Repository):**
+**Für privates Repository (mit Token):**
 
+1. Erstelle GitHub Personal Access Token (Settings > Developer settings > Personal access tokens)
+2. Nutze Token in URL:
 ```bash
-/plugin marketplace add clevermation/clevermation-claude-plugins
+/plugin marketplace add https://TOKEN@github.com/clevermation/clevermation-claude-plugins
 ```
 
-**⚠️ Falls SSH-Fehler:** Nutze immer die HTTPS-URL (Option 1)!
+**⚠️ Empfehlung:** Mache das Repository öffentlich für einfachere Team-Nutzung!
 
 ### Schritt 2: Setup starten
 
@@ -69,13 +80,18 @@ Dies fragt nach:
 
 ---
 
-## Option 2: Lokales Plugin nutzen (Entwicklung)
+## Option 2: Lokales Plugin nutzen (Entwicklung/Privates Repository)
 
-### Schritt 1: Plugin-Verzeichnis öffnen
+**Diese Option funktioniert ohne GitHub-Authentifizierung!**
+
+### Schritt 1: Plugin-Verzeichnis klonen/öffnen
 
 ```bash
-cd /path/to/clevermation-claude-plugins
-claude .
+# Falls noch nicht vorhanden, klone das Repository lokal:
+cd ~/Desktop/Jonne_Felix/Clevermation/Intern
+git clone https://github.com/clevermation/clevermation-claude-plugins.git
+# Oder falls bereits vorhanden:
+cd clevermation-claude-plugins
 ```
 
 ### Schritt 2: In neuem Projekt Plugin referenzieren
@@ -83,16 +99,25 @@ claude .
 **Methode 1: Symlink (empfohlen für Entwicklung)**
 
 ```bash
-# Im neuen Projekt
-cd /path/to/your-new-project
-ln -s /path/to/clevermation-claude-plugins/.claude .claude-plugin
+# Im neuen Projekt (z.B. Milkyway)
+cd ~/Desktop/Jonne_Felix/Clevermation/Intern/Milkyway
+ln -s ~/Desktop/Jonne_Felix/Clevermation/Intern/clevermation-claude-plugins/.claude .claude-plugin
 ```
 
 **Methode 2: Plugin-Verzeichnis kopieren**
 
 ```bash
 # Im neuen Projekt
-cp -r /path/to/clevermation-claude-plugins/.claude .claude-plugin
+cd ~/Desktop/Jonne_Felix/Clevermation/Intern/Milkyway
+cp -r ~/Desktop/Jonne_Felix/Clevermation/Intern/clevermation-claude-plugins/.claude .claude-plugin
+```
+
+**Methode 3: Direkt im Plugin-Verzeichnis arbeiten**
+
+```bash
+# Öffne Claude Code direkt im Plugin-Verzeichnis
+cd ~/Desktop/Jonne_Felix/Clevermation/Intern/clevermation-claude-plugins
+claude .
 ```
 
 ### Schritt 3: Setup starten
@@ -100,6 +125,8 @@ cp -r /path/to/clevermation-claude-plugins/.claude .claude-plugin
 ```bash
 /setup-clevermation
 ```
+
+**Vorteil:** Funktioniert sofort ohne GitHub-Authentifizierung!
 
 ---
 
@@ -172,22 +199,34 @@ Bei jedem Session-Start wird automatisch geprüft:
    /plugin marketplace add https://github.com/clevermation/clevermation-claude-plugins
    ```
 
-### SSH-Authentifizierungsfehler
+### Authentifizierungsfehler (SSH oder HTTPS)
 
-**Problem:** `Permission denied (publickey)` beim Hinzufügen des Marketplaces
+**Problem:** `Permission denied` oder `could not read Username` beim Hinzufügen des Marketplaces
 
-**Lösung:**
-1. **Nutze HTTPS-URL statt Kurzform:**
+**Ursache:** Das Repository ist privat oder benötigt Authentifizierung.
+
+**Lösungen:**
+
+1. **Repository öffentlich machen (empfohlen):**
+   - Gehe zu GitHub Repository Settings
+   - Scrolle nach unten zu "Danger Zone"
+   - Klicke "Change visibility" → "Make public"
+   - Dann funktioniert: `/plugin marketplace add https://github.com/clevermation/clevermation-claude-plugins`
+
+2. **GitHub Personal Access Token verwenden:**
    ```bash
-   # ❌ Funktioniert nicht ohne SSH-Keys:
-   /plugin marketplace add clevermation/clevermation-claude-plugins
-   
-   # ✅ Funktioniert immer:
-   /plugin marketplace add https://github.com/clevermation/clevermation-claude-plugins
+   # Token erstellen: GitHub Settings > Developer settings > Personal access tokens
+   # Token mit 'repo' Berechtigung erstellen
+   /plugin marketplace add https://TOKEN@github.com/clevermation/clevermation-claude-plugins
    ```
 
-2. **Oder konfiguriere SSH-Keys für GitHub** (falls gewünscht):
+3. **SSH-Keys konfigurieren:**
    - Siehe: https://docs.github.com/en/authentication/connecting-to-github-with-ssh
+   - Dann funktioniert: `/plugin marketplace add clevermation/clevermation-claude-plugins`
+
+4. **Lokale Nutzung (siehe Option 2):**
+   - Funktioniert ohne GitHub-Authentifizierung
+   - Ideal für Entwicklung/Testing
 
 ### MCPs funktionieren nicht
 
