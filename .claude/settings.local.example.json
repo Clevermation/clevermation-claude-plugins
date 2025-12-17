@@ -2,7 +2,8 @@
   "env": {
     "FIRECRAWL_API_KEY": "fc-your-api-key-here",
     "SUPABASE_URL": "https://your-project.supabase.co",
-    "SUPABASE_SERVICE_ROLE_KEY": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...",
+    "SUPABASE_SECRET_KEY": "sb_secret_xxxxxxxxxxxxxxxxxxxxxxxx",
+    "SUPABASE_PUBLISHABLE_KEY": "sb_publishable_xxxxxxxxxxxxxxxxxxxxxxxx",
     "N8N_URL": "https://your-n8n-instance.com",
     "N8N_API_KEY": "your-n8n-api-key",
     "AIRTABLE_API_KEY": "patXXXXXXXXXXXXXX",

@@ -181,9 +181,14 @@ const { data, error } = await supabase.auth.updateUser({
 - Refresh Session bei Bedarf
 
 ### 2. Security
-- Nutze Service Role Key NUR Server-Side
-- Nutze Anon Key im Frontend
+- Nutze Secret Key (`sb_secret_...`) NUR Server-Side (ersetzt Service Role Key)
+- Nutze Publishable Key (`sb_publishable_...`) im Frontend (ersetzt Anon Key)
 - Validiere User-Input immer
+
+**WICHTIG: Neue Supabase Keys (2024):**
+- **Publishable Key** (`sb_publishable_...`) - Für Frontend, sicher zu exponieren
+- **Secret Key** (`sb_secret_...`) - Für Server-Side, NIEMALS im Frontend!
+- Die alten JWT-basierten Keys (`anon`, `service_role`) sind veraltet und sollten nicht mehr verwendet werden
 
 ### 3. Error Handling
 - Behandle Auth-Fehler angemessen
