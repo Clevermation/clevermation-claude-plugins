@@ -16,15 +16,19 @@
 
 Öffne Claude Code in deinem neuen Projekt und führe aus:
 
-```bash
-/plugin marketplace add clevermation/clevermation-claude-plugins
-```
-
-**Oder direkt von GitHub:**
+**Option 1: HTTPS URL (empfohlen, funktioniert immer):**
 
 ```bash
 /plugin marketplace add https://github.com/clevermation/clevermation-claude-plugins
 ```
+
+**Option 2: Kurzform (benötigt SSH-Keys oder öffentliches Repository):**
+
+```bash
+/plugin marketplace add clevermation/clevermation-claude-plugins
+```
+
+**⚠️ Falls SSH-Fehler:** Nutze immer die HTTPS-URL (Option 1)!
 
 ### Schritt 2: Setup starten
 
@@ -163,10 +167,27 @@ Bei jedem Session-Start wird automatisch geprüft:
    ```bash
    /plugin marketplace list
    ```
-2. Füge Marketplace manuell hinzu:
+2. Füge Marketplace manuell hinzu (nutze HTTPS-URL):
    ```bash
-   /plugin marketplace add clevermation/clevermation-claude-plugins
+   /plugin marketplace add https://github.com/clevermation/clevermation-claude-plugins
    ```
+
+### SSH-Authentifizierungsfehler
+
+**Problem:** `Permission denied (publickey)` beim Hinzufügen des Marketplaces
+
+**Lösung:**
+1. **Nutze HTTPS-URL statt Kurzform:**
+   ```bash
+   # ❌ Funktioniert nicht ohne SSH-Keys:
+   /plugin marketplace add clevermation/clevermation-claude-plugins
+   
+   # ✅ Funktioniert immer:
+   /plugin marketplace add https://github.com/clevermation/clevermation-claude-plugins
+   ```
+
+2. **Oder konfiguriere SSH-Keys für GitHub** (falls gewünscht):
+   - Siehe: https://docs.github.com/en/authentication/connecting-to-github-with-ssh
 
 ### MCPs funktionieren nicht
 

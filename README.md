@@ -9,8 +9,10 @@ Claude Code Plugin-System fuer das Clevermation-Team mit spezialisierten Agents,
 Öffne Claude Code in deinem neuen Projekt und führe aus:
 
 ```bash
-/plugin marketplace add clevermation/clevermation-claude-plugins
+/plugin marketplace add https://github.com/clevermation/clevermation-claude-plugins
 ```
+
+**⚠️ Falls SSH-Fehler:** Nutze immer die HTTPS-URL statt der Kurzform!
 
 ### Schritt 2: Setup starten
 
