@@ -41,7 +41,15 @@ Falls das Repository privat ist:
 
 **⚠️ Empfehlung:** Mache das Repository öffentlich für einfachere Team-Nutzung!
 
-### Schritt 2: Setup starten
+### Schritt 2: Setup-Plugin installieren
+
+**WICHTIG:** Das Setup-Plugin muss installiert werden, damit die Commands verfügbar sind:
+
+```bash
+/plugin install clevermation-setup@clevermation-plugins
+```
+
+### Schritt 3: Setup starten
 
 ```bash
 /setup-clevermation
