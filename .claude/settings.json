@@ -23,8 +23,8 @@
   },
   "enableAllProjectMcpServers": true,
   "companyAnnouncements": [
-    "Willkommen bei Clevermation! Nutze /clevermation fuer das Onboarding.",
+    "Willkommen bei Clevermation! Nutze /setup-clevermation fuer das Onboarding.",
     "Standard-Agents: Researcher, Plan, Frontend-Test sind verfuegbar.",
-    "Optionale Agents: Supabase, N8N, Airtable, Frontend - aktiviere via /clevermation"
+    "Optionale Agents: Supabase, N8N, Airtable, Frontend - aktiviere via /setup-clevermation"
   ],
 }
