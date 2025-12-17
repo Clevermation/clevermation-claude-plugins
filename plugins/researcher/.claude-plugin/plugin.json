@@ -1,0 +1,7 @@
+{
+  "name": "researcher",
+  "version": "1.0.0",
+  "description": "Web-Recherche Agent mit Firecrawl",
+  "agents": "./agents"
+}
+

@@ -13,11 +13,13 @@ curl -fsSL https://raw.githubusercontent.com/Clevermation/clevermation-claude-pl
 ```
 
 Oder lokal:
+
 ```bash
 bash setup.sh
 ```
 
 Das Script:
+
 - ✅ Prüft Claude Code Installation
 - ✅ Fügt Marketplace hinzu
 - ✅ Installiert Setup-Plugin

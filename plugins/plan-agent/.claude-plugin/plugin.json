@@ -1,0 +1,7 @@
+{
+  "name": "plan-agent",
+  "version": "1.0.0",
+  "description": "Architektur-Visualisierung mit Mermaid",
+  "agents": "./agents"
+}
+

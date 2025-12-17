@@ -1,0 +1,7 @@
+{
+  "name": "n8n",
+  "version": "1.0.0",
+  "description": "N8N Workflow-Automation",
+  "agents": "./agents"
+}
+

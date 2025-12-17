@@ -16,49 +16,49 @@
     },
     {
       "name": "researcher",
-      "source": "./.claude/agents/researcher-agent.md",
+      "source": "./plugins/researcher",
       "description": "Web-Recherche Agent mit Firecrawl - Informationen sammeln und validieren",
       "version": "1.0.0",
       "tags": ["research", "web", "firecrawl"]
     },
     {
       "name": "plan-agent",
-      "source": "./.claude/agents/plan-agent.md",
+      "source": "./plugins/plan-agent",
       "description": "Architektur-Visualisierung mit Mermaid - Diagramme fuer Dokumentation",
       "version": "1.0.0",
       "tags": ["planning", "diagrams", "mermaid"]
     },
     {
       "name": "frontend-test",
-      "source": "./.claude/agents/frontend-test-agent.md",
+      "source": "./plugins/frontend-test",
       "description": "E2E-Testing mit Playwright - Browser-Tests automatisieren",
       "version": "1.0.0",
       "tags": ["testing", "playwright", "e2e"]
     },
     {
       "name": "supabase",
-      "source": "./.claude/agents/supabase-agent.md",
+      "source": "./plugins/supabase",
       "description": "Supabase Datenbank-Spezialist - Schema, RLS, Auth, Storage",
       "version": "1.0.0",
       "tags": ["database", "supabase", "postgres"]
     },
     {
       "name": "n8n",
-      "source": "./.claude/agents/n8n-agent.md",
+      "source": "./plugins/n8n",
       "description": "N8N Workflow-Automation - Integrationen und Automatisierung",
       "version": "1.0.0",
       "tags": ["automation", "n8n", "workflows"]
     },
     {
       "name": "airtable",
-      "source": "./.claude/agents/airtable-agent.md",
+      "source": "./plugins/airtable",
       "description": "Airtable Datenbank-Experte - Tabellen, Formulas, API",
       "version": "1.0.0",
       "tags": ["database", "airtable", "no-code"]
     },
     {
       "name": "frontend",
-      "source": "./.claude/agents/frontend-agent.md",
+      "source": "./plugins/frontend",
       "description": "Frontend UI/UX mit shadcn/ui - React/Next.js Komponenten",
       "version": "1.0.0",
       "tags": ["frontend", "react", "shadcn", "tailwind"]

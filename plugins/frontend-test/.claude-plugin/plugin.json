@@ -1,0 +1,7 @@
+{
+  "name": "frontend-test",
+  "version": "1.0.0",
+  "description": "E2E-Testing mit Playwright",
+  "agents": "./agents"
+}
+
