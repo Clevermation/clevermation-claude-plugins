@@ -1,0 +1,38 @@
+{
+  "mcpServers": {
+    "firecrawl": {
+      "command": "npx",
+      "args": ["-y", "firecrawl-mcp"],
+      "env": {
+        "FIRECRAWL_API_KEY": "${FIRECRAWL_API_KEY}"
+      },
+      "description": "Web-Scraping und Recherche mit Firecrawl"
+    },
+    "playwright": {
+      "command": "npx",
+      "args": ["-y", "@anthropic/mcp-playwright"],
+      "description": "Browser-Automatisierung und E2E-Testing"
+    },
+    "supabase": {
+      "command": "npx",
+      "args": ["-y", "@supabase/mcp-server-supabase"],
+      "env": {
+        "SUPABASE_URL": "${SUPABASE_URL}",
+        "SUPABASE_SECRET_KEY": "${SUPABASE_SECRET_KEY}"
+      },
+      "description": "Supabase Datenbank-Operationen"
+    },
+    "n8n-mcp": {
+      "command": "npx",
+      "args": ["n8n-mcp"],
+      "env": {
+        "MCP_MODE": "stdio",
+        "LOG_LEVEL": "error",
+        "DISABLE_CONSOLE_OUTPUT": "true",
+        "N8N_API_URL": "${N8N_URL}",
+        "N8N_API_KEY": "${N8N_API_KEY}"
+      },
+      "description": "N8N Workflow-Automatisierung"
+    }
+  }
+}

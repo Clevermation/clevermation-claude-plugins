@@ -1,0 +1,30 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm:*)",
+      "Bash(npx:*)",
+      "Bash(git:*)",
+      "Bash(node:*)",
+      "Read(.claude/**)",
+      "Read(docs/**)",
+      "WebFetch(*)",
+      "WebSearch(*)"
+    ],
+    "deny": [
+      "Read(.env)",
+      "Read(.env.*)",
+      "Read(secrets/**)",
+      "Bash(rm -rf:*)",
+      "Bash(sudo:*)"
+    ]
+  },
+  "env": {
+    "NODE_ENV": "development"
+  },
+  "enableAllProjectMcpServers": true,
+  "companyAnnouncements": [
+    "Willkommen bei Clevermation! Nutze /clevermation fuer das Onboarding.",
+    "Standard-Agents: Researcher, Plan, Frontend-Test sind verfuegbar.",
+    "Optionale Agents: Supabase, N8N, Airtable, Frontend - aktiviere via /clevermation"
+  ],
+}

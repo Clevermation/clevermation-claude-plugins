@@ -1,0 +1,24 @@
+{
+  "name": "clevermation-plugins",
+  "version": "1.0.0",
+  "description": "Claude Code Plugins fuer das Clevermation Team - Agents, Skills und MCP Server fuer effiziente Entwicklung",
+  "author": {
+    "name": "Clevermation",
+    "email": "developer@clevermation.com"
+  },
+  "homepage": "https://clevermation.com",
+  "repository": "https://github.com/clevermation/clevermation-claude-plugins",
+  "license": "MIT",
+  "keywords": [
+    "clevermation",
+    "automation",
+    "n8n",
+    "supabase",
+    "airtable",
+    "mermaid",
+    "playwright"
+  ],
+  "hooks": "./.claude/hooks/hooks.json",
+  "mcpServers": "./.mcp.json"
+}
+

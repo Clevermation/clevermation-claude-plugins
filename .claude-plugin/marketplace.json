@@ -1,0 +1,64 @@
+{
+  "name": "clevermation-plugins",
+  "version": "1.0.0",
+  "description": "Claude Code Plugins fuer das Clevermation Team - Agents, Skills und MCP Server fuer effiziente Entwicklung",
+  "owner": {
+    "name": "Clevermation",
+    "email": "developer@clevermation.com"
+  },
+  "plugins": [
+    {
+      "name": "researcher",
+      "source": "./.claude/agents/researcher-agent.md",
+      "description": "Web-Recherche Agent mit Firecrawl - Informationen sammeln und validieren",
+      "version": "1.0.0",
+      "tags": ["research", "web", "firecrawl"]
+    },
+    {
+      "name": "plan-agent",
+      "source": "./.claude/agents/plan-agent.md",
+      "description": "Architektur-Visualisierung mit Mermaid - Diagramme fuer Dokumentation",
+      "version": "1.0.0",
+      "tags": ["planning", "diagrams", "mermaid"]
+    },
+    {
+      "name": "frontend-test",
+      "source": "./.claude/agents/frontend-test-agent.md",
+      "description": "E2E-Testing mit Playwright - Browser-Tests automatisieren",
+      "version": "1.0.0",
+      "tags": ["testing", "playwright", "e2e"]
+    },
+    {
+      "name": "supabase",
+      "source": "./.claude/agents/supabase-agent.md",
+      "description": "Supabase Datenbank-Spezialist - Schema, RLS, Auth, Storage",
+      "version": "1.0.0",
+      "tags": ["database", "supabase", "postgres"],
+      "optional": true
+    },
+    {
+      "name": "n8n",
+      "source": "./.claude/agents/n8n-agent.md",
+      "description": "N8N Workflow-Automation - Integrationen und Automatisierung",
+      "version": "1.0.0",
+      "tags": ["automation", "n8n", "workflows"],
+      "optional": true
+    },
+    {
+      "name": "airtable",
+      "source": "./.claude/agents/airtable-agent.md",
+      "description": "Airtable Datenbank-Experte - Tabellen, Formulas, API",
+      "version": "1.0.0",
+      "tags": ["database", "airtable", "no-code"],
+      "optional": true
+    },
+    {
+      "name": "frontend",
+      "source": "./.claude/agents/frontend-agent.md",
+      "description": "Frontend UI/UX mit shadcn/ui - React/Next.js Komponenten",
+      "version": "1.0.0",
+      "tags": ["frontend", "react", "shadcn", "tailwind"],
+      "optional": true
+    }
+  ]
+}

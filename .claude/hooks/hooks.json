@@ -1,0 +1,18 @@
+{
+  "description": "Clevermation Plugin Hooks - Onboarding Check bei Session-Start",
+  "hooks": {
+    "SessionStart": [
+      {
+        "matcher": ".*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "${CLAUDE_PLUGIN_ROOT}/.claude/hooks/onboarding-check.sh",
+            "timeout": 10
+          }
+        ]
+      }
+    ]
+  }
+}
+
